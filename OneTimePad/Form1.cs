@@ -29,12 +29,15 @@ namespace OnTimePadProgram
         {
             string textToEncrypt = enterText.Text;
             key = pad.GetKey(textToEncrypt);
+            keyTextBox.Text = key;
             ResultingText.Text = pad.Encrypt(textToEncrypt, key);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void decryptionButton_Click(object sender, EventArgs e)
         {
-
+            string textToDecrypt = enterText.Text;
+            key = keyTextBox.Text;
+            ResultingText.Text = pad.Decrypt(textToDecrypt, key);
         }
     }
 }

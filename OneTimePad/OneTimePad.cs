@@ -42,11 +42,31 @@ namespace OnTimePadProgram
                 {
                     builtString.Append(randomChar);
                     i++;
-                }
-                
+                }   
             }
+            return builtString.ToString();
+        }
 
+        public string Decrypt(string textToDecrypt, string key)
+        {
+            StringBuilder builtString = new StringBuilder();
 
+            for (int i = 0; i < textToDecrypt.Length; i++)
+            {
+                int charValue = textToDecrypt[i];
+                int padValue = key[i];
+
+                if (textToDecrypt[i] / 90 < 1)
+                {
+                    char charToAppend = (char)(26 + charValue - padValue + 'A');
+                    builtString.Append(charToAppend);
+                }
+                else
+                {
+                    char charToApped = (char)(26 + (charValue - padValue) + 'a');
+                    builtString.Append(charToApped);
+                }
+            }
             return builtString.ToString();
         }
 
