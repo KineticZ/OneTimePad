@@ -61,15 +61,20 @@ namespace OnTimePadProgram
                     charValue = charValue - 'A';
                     padValue = padValue - 'A';
                     //fix
-                    int offset = (26 + padValue) % 26;
+                    int offset = charValue - padValue;
 
-                    char charToAppend = (char)(26 + charValue - padValue + 'A');
+                    char charToAppend = (char)((26 + offset)%26 + 'A');
                     builtString.Append(charToAppend);
                 }
                 else
                 {
-                    char charToApped = (char)(26 + (charValue - padValue) + 'a');
-                    builtString.Append(charToApped);
+                    charValue = charValue - 'a';
+                    padValue = padValue - 'a';
+                    //fix
+                    int offset = charValue - padValue;
+
+                    char charToAppend = (char)((26 + offset)%26 + 'a');
+                    builtString.Append(charToAppend);
                 }
             }
             return builtString.ToString();
