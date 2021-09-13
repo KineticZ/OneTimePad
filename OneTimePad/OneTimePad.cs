@@ -81,12 +81,20 @@ namespace OnTimePadProgram
 
                 if (textToEncrypt[i] / 90 < 1)
                 {
-                    char charToAppend = (char)(((charValue + padValue) % 26) + 'A');
+                    charValue = charValue - 'A';
+                    padValue = padValue - 'A';
+
+                    int newCharValue = (charValue + padValue) % 26;
+                    char charToAppend = (char)(newCharValue + 'A');
                     builtString.Append(charToAppend);
                 }
                 else
                 {
-                    char charToAppend = (char)(((charValue + padValue) % 26) + 'a');
+                    charValue = charValue - 'a';
+                    padValue = padValue - 'a';
+
+                    int newCharValue = (charValue + padValue) % 26;
+                    char charToAppend = (char)(newCharValue + 'a');
                     builtString.Append(charToAppend);
                 }
             }
