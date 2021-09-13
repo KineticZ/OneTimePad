@@ -58,6 +58,11 @@ namespace OnTimePadProgram
 
                 if (textToDecrypt[i] / 90 < 1)
                 {
+                    charValue = charValue - 'A';
+                    padValue = padValue - 'A';
+                    //fix
+                    int offset = (26 + padValue) % 26;
+
                     char charToAppend = (char)(26 + charValue - padValue + 'A');
                     builtString.Append(charToAppend);
                 }
